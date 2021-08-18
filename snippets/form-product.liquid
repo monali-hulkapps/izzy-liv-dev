@@ -101,7 +101,12 @@
       
       
       <div class="Bundles">
-        
+        {% assign subProds = product.metafields.my_fields.bundle_sub_products %}
+        {% for subprod in subproducts %}
+        	{{subprod | json}}}
+        {% endfor %}
+       	 
+       
         
       </div>
       
