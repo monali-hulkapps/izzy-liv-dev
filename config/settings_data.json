@@ -15,12 +15,13 @@
           "enable_sticky_header": true,
           "header_bg_color": "#ffffff",
           "show_line_separator": true,
-          "logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/logo_1.svg?v=1627294968",
+          "logo_svg": "",
+          "logo": "shopify:\/\/shop_images\/logo2.png",
           "logo_width": 100,
           "logo_position": "middle-left",
           "menu": "footer",
           "main_menu_linklist": "footer",
-          "secondary_menu_linklist": "mega-nav",
+          "secondary_menu_linklist": "",
           "mobile_nav_show_social_links": true,
           "social_icon_facebook": true,
           "social_icon_twitter": true,
@@ -40,9 +41,9 @@
           "logo_max_width": 180,
           "col_1_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.<\/p>",
           "col_2_heading": "Main Menu",
-          "footer_linklist_col_2": "header",
+          "footer_linklist_col_2": "",
           "col_3_heading": "Info",
-          "footer_linklist_col_3": "learn",
+          "footer_linklist_col_3": "",
           "col_4_heading": "Footer menu",
           "footer_linklist_col_4": "footer",
           "col_5_heading": "STAY IN TOUCH",
@@ -64,11 +65,6 @@
           "payment_icon_amazonpay": true
         }
       },
-      "ajax-cart": {
-        "type": "ajax-cart",
-        "settings": {
-        }
-      },
       "newsletter": {
         "type": "newsletter",
         "settings": {
@@ -86,18 +82,11 @@
           "txt_color": "#222222"
         }
       },
-      "mobile-navigation": {
-        "type": "mobile-navigation",
+      "app-optimization": {
+        "type": "app-optimization",
         "settings": {
-          "mobile_nav_show_logo": true,
-          "logo_svg": "",
-          "logo_width": 100,
-          "main_menu_linklist": "main-menu",
-          "secondary_menu_linklist": "",
-          "mobile_nav_show_social_links": true,
-          "social_icon_facebook": true,
-          "social_icon_twitter": true,
-          "social_icon_instagram": true
+          "enable": true,
+          "debug_enable": false
         }
       }
     },
