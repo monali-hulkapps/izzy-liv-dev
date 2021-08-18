@@ -6,17 +6,18 @@
         "e5811002-6f6b-488d-a9a4-803d62a8f03e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fashionable-man-by-textured-wall.jpg",
+            "image_large_desktop": "shopify:\/\/shop_images\/header2_17ff3a8d-f1fa-42f6-9dfb-b0ed9525be2a-min.jpg",
+            "image": "shopify:\/\/shop_images\/header2_17ff3a8d-f1fa-42f6-9dfb-b0ed9525be2a-min.jpg",
             "slide_bg_color": "#ffffff",
-            "enable_overlay": true,
+            "enable_overlay": false,
             "overlay_bg_color": "#000000",
             "overlay_opacity": 0.1,
             "alignment": "text-center",
-            "heading": "Awesome Hero Slider",
-            "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+            "heading": "",
+            "caption": "",
             "heading_txt_color": "",
             "caption_txt_color": "",
-            "btn_txt": "Shop Now",
+            "btn_txt": "",
             "btn_link": "#",
             "btn_type": "",
             "btn_variant": "dark",
@@ -26,7 +27,6 @@
         "5f138ef3-db88-4ec2-9c76-525b0af787bf": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/boots-on-blue.jpg",
             "slide_bg_color": "#ffffff",
             "enable_overlay": true,
             "overlay_bg_color": "#ffffff",
@@ -145,8 +145,8 @@
         "section_bg_color": "#f8f9fa",
         "section_txt_color": "#222222",
         "grid_size": "4",
-        "enable_overlay": true,
         "image_ratio": "adapt",
+        "enable_overlay": true,
         "overlay_bg_color": "#000000",
         "overlay_opacity": 0.5
       }
@@ -200,12 +200,12 @@
         "162710985888a5f3c0-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/fashionable-man-by-textured-wall.jpg",
         "enable_overlay": true,
         "overlay_bg_color": "#ffffff",
         "overlay_opacity": 0.3,
         "height": "tallheight",
         "desktop_text_box_position": "center",
+        "text_caption_align": "justify-content-center",
         "text_align": "text-center"
       }
     },
@@ -222,8 +222,6 @@
         "btn_type": "outline",
         "btn_variant": "primary",
         "btn_size": "",
-        "image": "shopify:\/\/shop_images\/Rectangle_208.png",
-        "height": "squareheight",
         "section_bg_color": "#f8f9fa",
         "section_text_color": "#000000",
         "alignment": "text-left",
@@ -252,49 +250,42 @@
         "3985dafd-8fbe-495c-a78d-17788cc28cb2": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/VOGUE_LOGO.png",
             "logo_url": ""
           }
         },
         "2c2f7a1a-e97d-4315-a0d6-2b357320264d": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/Gooponlinelogo_1.png",
             "logo_url": ""
           }
         },
         "5c384d1d-15bc-4d8a-b411-54440fe6475c": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/VOGUE_LOGO.png",
             "logo_url": ""
           }
         },
         "1cf12a9a-a950-4b88-94d8-d4b64a084978": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/Gooponlinelogo_1.png",
             "logo_url": ""
           }
         },
         "18b7a918-9ecf-47e3-8da7-6d93a7a330e6": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/VOGUE_LOGO.png",
             "logo_url": ""
           }
         },
         "2dc4650f-8c4f-439c-adf1-6e23854d3945": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/Gooponlinelogo_1.png",
             "logo_url": ""
           }
         },
         "65899402-a15a-469b-b33b-68f8b34d239b": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/VOGUE_LOGO.png",
             "logo_url": ""
           }
         }
