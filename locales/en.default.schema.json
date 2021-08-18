@@ -760,16 +760,13 @@
     "template-article": {
       "name": "Blog post",
       "blocks": {
-        
       }
     },
     "template-blog": {
       "name": "Blog posts",
       "settings": {
-        
       },
       "blocks": {
-        
       }
     },
     "template-cart": {
@@ -845,6 +842,193 @@
     },
     "template-page": {
       "name": "Page"
+    },
+    "template-product-bundle": {
+      "name": "Product Bundle information",
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            },
+            "text_style": {
+              "label": "Text style",
+              "options__1": {
+                "label": "Body"
+              },
+              "options__2": {
+                "label": "Subtitle"
+              },
+              "options__3": {
+                "label": "Uppercase"
+              }
+            }
+          }
+        },
+        "title": {
+          "name": "Title"
+        },
+        "price": {
+          "name": "Price"
+        },
+        "quantity_selector": {
+          "name": "Quantity selector"
+        },
+        "variant_picker": {
+          "name": "Variant picker",
+          "settings": {
+            "picker_type": {
+              "label": "Type",
+              "options__1": {
+                "label": "Dropdown"
+              },
+              "options__2": {
+                "label": "Button"
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Buy buttons",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Show dynamic checkout buttons",
+              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
+            }
+          }
+        },
+        "pickup_availability": {
+          "name": "Pickup availability"
+        },
+        "description": {
+          "name": "Description"
+        },
+        "share": {
+          "name": "Share",
+          "settings": {
+            "featured_image_info": {
+              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/images\/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "A store title and description are included with the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/promoting-marketing\/seo\/adding-keywords#set-a-title-and-description-for-your-online-store)."
+            }
+          }
+        },
+        "collapsible_tab": {
+          "name": "Collapsible tab",
+          "settings": {
+            "heading": {
+              "info": "Include a heading that explains the content.",
+              "label": "Heading"
+            },
+            "content": {
+              "label": "Tab content"
+            },
+            "page": {
+              "label": "Tab content from page"
+            },
+            "icon": {
+              "label": "Icon",
+              "options__1": {
+                "label": "None"
+              },
+              "options__2": {
+                "label": "Box"
+              },
+              "options__3": {
+                "label": "Chat bubble"
+              },
+              "options__4": {
+                "label": "Check mark"
+              },
+              "options__5": {
+                "label": "Dryer"
+              },
+              "options__6": {
+                "label": "Eye"
+              },
+              "options__7": {
+                "label": "Heart"
+              },
+              "options__8": {
+                "label": "Iron"
+              },
+              "options__9": {
+                "label": "Leaf"
+              },
+              "options__10": {
+                "label": "Leather"
+              },
+              "options__11": {
+                "label": "Lock"
+              },
+              "options__12": {
+                "label": "Map pin"
+              },
+              "options__13": {
+                "label": "Pants"
+              },
+              "options__14": {
+                "label": "Plane"
+              },
+              "options__15": {
+                "label": "Price tag"
+              },
+              "options__16": {
+                "label": "Question mark"
+              },
+              "options__17": {
+                "label": "Return"
+              },
+              "options__18": {
+                "label": "Ruler"
+              },
+              "options__19": {
+                "label": "Shirt"
+              },
+              "options__20": {
+                "label": "Shoe"
+              },
+              "options__21": {
+                "label": "Silhouette"
+              },
+              "options__22": {
+                "label": "Star"
+              },
+              "options__23": {
+                "label": "Truck"
+              },
+              "options__24": {
+                "label": "Washing"
+              }
+            }
+          }
+        },
+        "popup": {
+          "name": "Pop-up",
+          "settings": {
+            "link_label": {
+              "label": "Link label"
+            },
+            "page": {
+              "label": "Page"
+            }
+          }
+        }
+      },
+      "settings": {
+        "header": {
+          "content": "Media",
+          "info": "Learn more about [media types](https:\/\/help.shopify.com\/manual\/products\/product-media)"
+        },
+        "enable_sticky_info": {
+          "label": "Enable sticky product information on large screens"
+        },
+        "enable_video_looping": {
+          "label": "Enable video looping"
+        }
+      }
     },
     "template-product": {
       "name": "Product information",
@@ -1036,13 +1220,11 @@
     "template-search": {
       "name": "Search results",
       "settings": {
-
       }
     },
     "newsletter": {
       "name": "Email signup",
       "settings": {
-       
       }
     },
     "page": {
