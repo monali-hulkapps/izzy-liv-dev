@@ -102,9 +102,10 @@
       
       <div class="Bundles">
         
-        <pre>{{product.metafields.my_fields.bundle_sub_products}}</pre>
+        
         
         {% assign subProds = product.metafields.my_fields.bundle_sub_products %}
+        <pre>{{subProds}}</pre>
         {% for subprod in subproducts %}
         	{{subprod | json}}}
         {% endfor %}
