@@ -106,7 +106,7 @@
         
         {% assign subProds = product.metafields.my_fields.bundle_sub_products %}
        <pre>{{subProds.products}}</pre>
-        {% for subprod in subProds.products %}
+        {% for subprod in subProds %}
         	<pre>{{subprod}}</pre>
         {% endfor %}
        	 
