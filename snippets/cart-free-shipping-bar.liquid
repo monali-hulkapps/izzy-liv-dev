@@ -1,0 +1,17 @@
+{%- assign cartSubTotal = cart.total_price -%}
+{%- assign eligibleBar = 0 -%}
+{%- assign leftAmount = 0 -%}
+{% if settings.free_shipping_value %}{% assign eligibleBar = settings.free_shipping_value | times: 100 %}{% endif %}
+
+{% if eligibleBar > 0 %}
+    <div class="delivery-shipping d-flex mb-3">
+        <a href="#" class="me-2"><img src="https://cdn.shopify.com/s/files/1/0581/7663/5061/files/shoping-icon.svg?v=1625725815"></a>
+        {%- if cartSubTotal > eligibleBar -%}
+            <p class="mb-0">{{ settings.free_shipping_txt }}</p>
+        {%- else -%}
+            {%- assign leftAmount = eligibleBar | minus: cartSubTotal -%}
+            {%- assign leftAmountMsg = settings.free_shipping_left | replace: '${addMoreForFreeShip}', leftAmount -%}
+            <p class="mb-0">{{ leftAmountMsg }}</p>
+        {%- endif -%}
+    </div>
+{% endif %}

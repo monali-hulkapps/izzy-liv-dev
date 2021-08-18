@@ -1,0 +1,28 @@
+{
+  "wrapper": "section",
+  "sections": {
+    "banner": {
+      "type": "template-collection-banner",
+      "settings": {
+        "fluid_layout": false,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "section_bg_color": "#f8f9fa",
+        "alignment": "text-start"
+      }
+    },
+    "product-grid": {
+      "type": "template-collection",
+      "settings": {
+        "products_per_page": 16,
+        "pagination_type": "numbers",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "current": {
+    "enable_shipping_bar": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "topbar_enabled": true,
+          "topbar_text": "SAME DAY SHIPPING! ORDER BY 2PM (EASTERN TIME)",
+          "topbar_bg_color": "#5c6ac4",
+          "topbar_text_color": "#ffffff",
+          "topbar_height": 40,
+          "topbar_font_size": 1,
+          "fluid_header": false,
+          "enable_sticky_header": true,
+          "header_bg_color": "#ffffff",
+          "show_line_separator": true,
+          "logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/logo_1.svg?v=1627294968",
+          "logo_width": 100,
+          "logo_position": "middle-left",
+          "menu": "footer",
+          "main_menu_linklist": "footer",
+          "secondary_menu_linklist": "mega-nav",
+          "mobile_nav_show_social_links": true,
+          "social_icon_facebook": true,
+          "social_icon_twitter": true,
+          "social_icon_instagram": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "fluid_footer": false,
+          "footer_top_bg_color": "#222222",
+          "footer_top_txt_color": "#ffffff",
+          "footer_top_link_color": "#ffffff",
+          "footer_bottom_bg_color": "#212529",
+          "footer_bottom_txt_color": "#ffffff",
+          "footer_logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/logo_1.svg?v=1627294968",
+          "logo_max_width": 180,
+          "col_1_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.<\/p>",
+          "col_2_heading": "Main Menu",
+          "footer_linklist_col_2": "header",
+          "col_3_heading": "Info",
+          "footer_linklist_col_3": "learn",
+          "col_4_heading": "Footer menu",
+          "footer_linklist_col_4": "footer",
+          "col_5_heading": "STAY IN TOUCH",
+          "col_5_txt": "Get monthly updates and free resources.",
+          "show_newsletter": true,
+          "show_social_links": true,
+          "col_5_social_heading": "Connect with Us",
+          "social_icon_facebook": true,
+          "social_icon_twitter": true,
+          "social_icon_instagram": true,
+          "social_icon_youtube": true,
+          "show_payment_icons": true,
+          "payment_icon_visa": true,
+          "payment_icon_mastercard": true,
+          "payment_icon_ae": true,
+          "payment_icon_diners": true,
+          "payment_icon_paypal": true,
+          "payment_icon_applepay": true,
+          "payment_icon_amazonpay": true
+        }
+      },
+      "ajax-cart": {
+        "type": "ajax-cart",
+        "settings": {
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "enabled": true,
+          "is_hidden_on_mobile": false,
+          "popup_delay": 1,
+          "popup_period_until": 7,
+          "heading": "Subscribe to Newsletter",
+          "text": "<p>Subscribe and get exclusive offers!<\/p>",
+          "footer_notes": "<p>No SPAM! We not share your email to any 3rd part companies!<\/p>",
+          "btn_txt": "Subscribe",
+          "template_type": "image_bg",
+          "bg_color_outer": "#ffffff",
+          "bg_color_inner": "#ffffff",
+          "txt_color": "#222222"
+        }
+      },
+      "mobile-navigation": {
+        "type": "mobile-navigation",
+        "settings": {
+          "mobile_nav_show_logo": true,
+          "logo_svg": "",
+          "logo_width": 100,
+          "main_menu_linklist": "main-menu",
+          "secondary_menu_linklist": "",
+          "mobile_nav_show_social_links": true,
+          "social_icon_facebook": true,
+          "social_icon_twitter": true,
+          "social_icon_instagram": true
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}

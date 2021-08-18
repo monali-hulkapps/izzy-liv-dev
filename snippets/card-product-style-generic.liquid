@@ -1,0 +1,78 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+<div class="card card-product card-product-style-1 text-left" data-product-grid>
+  <span class="badges">
+    {%- assign productBadges = settings.custom_badges | newline_to_br | split: '<br />' -%}
+    {%- for badge in productBadges -%}
+      {%- assign badgeData = badge | strip | split:':'  -%}
+      {%- assign badgeLabel = badgeData[1] | strip -%}
+      {%- if product.tags contains badgeData[0] -%}
+        <span class="badge badge-right badge-warning" >
+          {{ badgeLabel }}
+        </span>
+      {%- endif -%}
+    {%- endfor -%}
+    {% if current_variant.compare_at_price > current_variant.price %}
+    <span class="badge badge-right badge-danger" >
+      {{ 'products.product.on_sale' | t | escape }}
+    </span>
+    {% endif %}
+    {% unless product.available %}
+    <span class="badge badge-right badge-warning">
+      {{ 'products.product.sold_out' | t | escape }}
+    </span>
+    {% endunless %}
+  </span>
+  <div class="card-img text-center {% if product.featured_image.size == 0 %}bg-gray-300{% endif %}" >
+    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+    {% if product.featured_image.size > 0 %}
+        <a href="{{ product.url | within: collection }}" class="d-block product-link" >
+            <img src="{{ product.featured_image | img_url: 'pico' }}"
+                srcset="{{ product.featured_image | img_url: '375x' }} 375w,
+                {%- if product.featured_image.width >= 478 -%}{{ product.featured_image | img_url: '478x', crop: 'center' }} 478w{%- endif -%}"
+                sizes="auto"  loading="lazy"
+                class="lazyload w-100"
+                data-feauredImage
+                alt="{{ product.featured_image.alt | escape }}"
+                width="{{ product.featured_image.width }}"
+                height="{{ product.featured_image.width | divided_by: product.featured_image.aspect_ratio }}" >
+            {%- if settings.show_secondary_image and product.images[1] -%}
+            <img src="{{ product.images[1] | img_url: 'pico' }}"
+                srcset="{{ product.images[1] | img_url: '375x' }} 375w,
+                {%- if product.images[1].width >= 478 -%}{{ product.images[1] | img_url: '478x', crop: 'center' }} 478w{%- endif -%}"
+                sizes="auto"  loading="lazy"
+                class="lazyload w-100"
+                data-hoverImage
+                alt="{{ product.images[1].alt | escape }}"
+                width="{{ product.images[1].width }}"
+                height="{{ product.images[1].width | divided_by: product.images[1].aspect_ratio }}" >
+            {%- endif -%}
+        </a>
+    {% else %}
+        {{ 'product-' | append: current | placeholder_svg_tag: 'img-fluid' }}
+    {% endif %}
+  </div>
+  <div class="card-body">
+    <h6 class="card-title m-0">
+      <a class="product-link" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    </h6>
+    {%- if settings.show_vendor -%}
+      <p>{{ product.vendor }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="card-footer bg-transparent pt-0 border-0 pb-3">
+    <div class="mb-3">
+    {% if current_variant.compare_at_price > product.price %}
+      <s class="price small m-0 p-0 text-gray-600 me-1 money" data-comparePrice>{{ product.compare_at_price | money }}</s>
+      {% endif %}
+      <span class="price m-0 p-0 money" data-currentPrice>{{ product.price | money }}</span>
+    </div>
+
+    {%- if settings.enable_product_card_swatches -%}
+      {%- render 'form-product', product: product, current_variant: current_variant, format: 'product-grid' -%}
+    {%- else -%}
+      <input type="hidden" name="quantity" value="1" />
+      <input type="hidden" name="id" value="{{ current_variant.id }}" />
+    {%- endif -%}
+  </div>
+</div>

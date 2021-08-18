@@ -1,0 +1,43 @@
+
+
+{% comment %} root variables css {% endcomment %}
+{%- render 'theme-style' -%}
+
+{% comment %} Global css {% endcomment %}
+{{ 'global.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Swipper Slider css {% endcomment %}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Modal css {% endcomment %}
+<link rel="stylesheet" href="{{ 'component-modal.css' | asset_url }}" media="print" onload="this.media='all'">
+
+
+{% comment %} Collection Page css {% endcomment %}
+
+{%- if template.name == 'collection' -%}
+
+    {% comment %} Collection Page custom css {% endcomment %}
+    <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {% comment %} Product Card css {% endcomment %}
+    <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {% comment %} Collection Filter css {% endcomment %}
+    <link rel="stylesheet" href="{{ 'component-filter.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {% comment %} Pagination css {% endcomment %}
+    <link rel="stylesheet" href="{{ 'component-pagination.css' | asset_url }}" media="print" onload="this.media='all'"> 
+
+    {% comment %} Product Card css {% endcomment %}
+    <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {% comment %} Collection Page custom css {% endcomment %}
+    <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {% comment %} Collection Filter css {% endcomment %}
+    <noscript>{{ 'component-filter.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {% comment %} Pagination css {% endcomment %}
+    <noscript>{{ 'component-pagination.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}

@@ -1,0 +1,110 @@
+<section class="section-content collection-hero__banner position-relative d-flex align-items-center" style="background: {{ section.settings.section_bg_color }}">
+
+    <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %} banner-breadcrumbs">
+        {% include 'breadcrumbs' %}
+    </div>
+
+    <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %} collection-banner__caption">
+        <div class="row">
+            <div class="col-sm-12 {{ section.settings.alignment }}">
+                <div class="fancy-heading">
+                    <h1 class="page-title mb-0"> 
+                        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+                        {{- collection.title | escape -}}
+                    </h1>
+                    {%- if section.settings.show_collection_description -%}
+                        <p>{{ collection.description }}</p>
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%- if section.settings.show_collection_image and collection.image -%}
+        <div class="collection-hero__image-container">
+            <img srcset="{{ collection.image | img_url: '165x' }} 165w,
+                {%- if collection.image.width >= 360 -%}{{ collection.image | img_url: '360x' }} 360w,{%- endif -%}
+                {%- if collection.image.width >= 535 -%}{{ collection.image | img_url: '535x' }} 535w,{%- endif -%}
+                {%- if collection.image.width >= 720 -%}{{ collection.image | img_url: '720x' }} 720w,{%- endif -%}
+                {%- if collection.image.width >= 940 -%}{{ collection.image | img_url: '940x' }} 940w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | img_url: '1070x' }} 1070w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | img_url: '2100x' }} 1900w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | img_url: '3800x' }} 3500w{%- endif -%}
+                "
+                src="{{ collection.image | img_url: 'pico' }}"
+                sizes="auto"
+                alt="{{ collection.title | escape }}"
+                loading="lazy"
+                width="{{ collection.image.width }}"
+                height="{{ collection.image.height }}"
+            >
+        </div>
+    {%- endif -%}
+</section>
+
+
+{% schema %}
+{
+    "name": "t:sections.template-collection-banner.name",
+    "class": "spaced-section spaced-section--full-width",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "checkbox",
+            "id": "fluid_layout",
+            "label": "Full Width Layout?",
+            "default": false
+        },
+        {
+            "type": "paragraph",
+            "content": "t:sections.template-collection-banner.settings.paragraph.content"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_description",
+            "default": true,
+            "label": "t:sections.template-collection-banner.settings.show_collection_description.label"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_image",
+            "default": false,
+            "label": "t:sections.template-collection-banner.settings.show_collection_image.label",
+            "info": "t:sections.template-collection-banner.settings.show_collection_image.info"
+        },
+        {
+            "type": "header",
+            "content": "Style"
+        },
+        {
+            "type":"color",
+            "id":"section_bg_color",
+            "label":"t:sections.template-collection-banner.settings.collection_banner_bg.label",
+            "default":"#f8f9fa"
+        },
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": "Alignment",
+            "options": [
+                {
+                    "value": "text-center",
+                    "label": "Center"
+                },
+                {
+                    "value": "text-start",
+                    "label": "Left"
+                },
+                {
+                    "value": "text-end",
+                    "label": "Right"
+                }
+            ],
+            "default": "text-start"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,129 @@
+{% assign fluid_layout = section.settings.fluid_layout %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{% assign show_vendor = section.settings.show_vendor %}
+
+{{ 'custom-product.css' | asset_url | stylesheet_tag }}
+
+<section class="section-content template-product-classic">
+    <div class="{% if fluid_layout %}container-fluid{% else %}container{% endif %}">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="product-images-wrapper pr-lg-4 text-center">
+                    {% if section.settings.template_type == 'classic-vertical' %}
+                        <div class="row align-items-start">
+                    {% endif %}
+                    {% if featured_image != blank %}
+
+                        <slider-element class="swiper-container carousel {% if section.settings.template_type == 'classic-vertical' %} col order-2 {% endif %}">
+                            <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
+                                {{ "accessibility.skip_to_product_info" | t }}
+                            </a>
+                            <div class="swiper-slider product-carousel pdp-carousel" data-nav="product-thumbnails" data-slider='{
+                                    "loop": false,
+                                    "slidesPerView": "1",
+                                    "spaceBetween": 15,
+                                    "grabCursor": true,
+                                    "navigation": {
+                                        "nextEl": ".swiper-button-next",
+                                        "prevEl": ".swiper-button-prev"
+                                    },
+                                    "pagination": {
+                                        "el": ".swiper-pagination"
+                                    }
+                                }' data-nav="product-thumbnails" role="tree">
+                                <div class="swiper-wrapper">
+                                    {% for image in product.images %}
+                                    <div class="swiper-slide carousel-cell d-flex align-items-center product--image" data-imageID="{{ image.id }}" role="treeitem">
+                                        <img class="img-fluid" 
+                                        src="{{ image.src | img_url: 'pico' }}"
+                                        srcset="{{ image.src | img_url: '576x' }} 576w,
+                                        {{ image.src | img_url: '768x' }} 768w,
+                                        {{ image.src | img_url: '992x' }} 992w"
+                                        data-variant-title="{{ image.alt | escape }}" 
+                                        sizes="auto"  loading="lazy"
+                                        class="lazyload"
+                                        alt="{{ image.alt | escape }}">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>    
+                        </slider-element>
+
+                        <!-- Nav Slider functionality is not available directly. Custom Set up for Nav -->
+                        {% if product.images.size > 1 %}
+                        <div class="swiper-container carousel  {% if section.settings.template_type == 'classic-vertical' %} col-2 order-1 {% endif %}">
+                            <div class="swiper-slider product-thumbnails" data-slider='{
+                                    "direction": {% if section.settings.template_type == 'classic-vertical' %}"vertical"{% else %} "horizontal"{% endif %},
+                                    "loop": false,
+                                    "slidesPerView": "4",
+                                    "spaceBetween": 15,
+                                    "grabCursor": true,
+                                    "slideToClickedSlide": true
+                                }' role="tree">
+                                <div class="swiper-wrapper">
+                                    {% for image in product.images %}
+                                    <div class="swiper-slide carousel-cell product-thumb--image" data-imageID="{{ image.id }}" role="treeitem">
+                                        <img class="carousel-cell img-fluid"
+                                        src="{{ image.src | img_url: 'pico' }}"
+                                        srcset="{{ image.src | img_url: '250x' }}"
+                                        sizes="auto"  loading="lazy"
+                                        class="lazyload"
+                                        alt="{{ image.alt | escape }}"/>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>    
+                        </div>
+                        {% endif %}
+
+                    {% else %}
+                      {{ 'image' | append: current | placeholder_svg_tag: 'img-fluid' }}
+                    {% endif %}
+                    {% if section.settings.template_type == 'classic-vertical' %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-lg-5" id="ProductInfo-{{ section.id }}">
+                <div class="product-details-wrapper mt-5 mt-lg-0">
+                  <h1>{{ product.title }}</h1>
+
+                  <div class="align-items-center">
+                    {% if show_vendor %}
+                      <span class="my-0">{{ product.vendor }}</span>
+                    {% endif %}
+                  </div>
+
+                  <div class="price-wrapper mt-2">
+                    {%- if current_variant.compare_at_price > current_variant.price -%}<s class="h6 text-gray-600 mr-2 money" data-comparePrice>{{ current_variant.compare_at_price | money }}</s>{%- endif -%}
+                    <span class="h5 actual-price money" data-currentPrice>{{ current_variant.price | money }}</span>
+                  </div>
+                  
+                  {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    {{ form | payment_terms }}
+                  {%- endform -%}
+                
+                  {%- render 'form-product', product: product, current_variant: current_variant -%}
+
+                  {% if product.description %}
+                    <h6 class="mt-5 mb-2">{{ 'products.product.description' | t }}</h6>
+                    <div class="rte">
+                        {{ product.description }}
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.show_social_share %}
+                  <h6 class="mt-5 mb-2">{{ 'products.product.share' | t }}</h6>
+                  {% render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+                  {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

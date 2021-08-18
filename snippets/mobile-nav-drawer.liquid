@@ -1,0 +1,139 @@
+<mobile-nav tabindex="0" data-touch-moveable>
+    <div data-section-id="{{ section.id }}" class="mobile-nav-drawer d-flex flex-column" id="mobile-menu-drawer" data-role="drawer">
+        {% assign main_menu = section.settings.main_menu_linklist  %}
+        {% assign secondary_menu = section.settings.secondary_menu_linklist  %}
+
+        <div class="drawer-header d-flex justify-content-between align-items-center px-4 py-3">
+            <a href="{{ routes.root_url }}" class="navbar-brand nav-item mobile-header--logo" tabindex="0" name="{{ shop.name | escape }}" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
+                {%- if logo_svg != '' -%}
+                    <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid" style="width: {{ section.settings.logo_width }}px">
+                {%- elsif logo_image != blank -%}
+                    {%- assign image_size = logo_image_width | append: 'x' -%}
+                    <img srcset="{{ logo_image | img_url: image_size }} 1x, {{ logo_image | img_url: image_size, scale: 2 }} 2x"
+                    src="{{ logo_image | img_url: image_size }}"
+                    loading="lazy"
+                    class="img-fluid"
+                    width="{{ logo_image.width }}"
+                    height="{{ logo_image.height }}"
+                    alt="{{ logo_image.alt | default: shop.name | escape }}"
+                    >
+                {%- else -%}
+                    <span class="h5 text-primary">{{ shop.name }}</span>
+                {%- endif -%}
+            </a>
+            <a href="#" class="btn-close ml-auto float-right close-mobile--navbar" name="close" title="close" rel="nofollow" aria-label="Close">
+                <i class="icon ion-md-close"></i>
+            </a>
+        </div>
+
+        <div class="drawer-body py-3">
+        {% if main_menu %}
+            <nav class="navbar-mobile">
+                <ul class="navbar-nav">
+                {% for link in linklists[main_menu].links %}
+                    {% assign child_list_handle = link.title | handleize %}
+                    {% if menus[child_list_handle].links != blank %}
+                    <li class="nav-item dropdown {% if link.active %}active{% endif %}">
+                        <a class="nav-link submenu-toggle d-flex align-items-center justify-content-between {{ link.handle }}" is="drop-down" tabindex="0" data-href="{{ link.url }}" role="button" data-toggle="open" data-target="#submenu-{{ child_list_handle }}" aria-expanded="false" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+                            <span>{{ link.title }}</span> <i class="icon ion-ios-arrow-down"></i>
+                        </a>
+                        <div class="submenu dropdown-menu toggle-content" id="submenu-{{ child_list_handle }}" data-type="content">
+                            {% for childlink in menus[child_list_handle].links %}
+                                {% assign subchild_list_handle = childlink.title | handleize %}
+                                {% if menus[subchild_list_handle].links != blank %}
+                                    <div class="nav-item dropdown">
+                                        <a is="drop-down" class="nav-link submenu-toggle d-flex align-items-center justify-content-between {% if childlink.active %} active{% endif %} {{ childlink.handle }}" data-href="{{ childlink.url }}" name="{{ childlink.title }}" title="{{ childlink.title }}" role="button" data-toggle="open" data-target="#submenu-{{ subchild_list_handle }}" aria-expanded="false" aria-label="{{ childlink.title }}">
+                                            {{ childlink.title }} <i class="icon ion-ios-arrow-down"></i>
+                                        </a>
+                                        <div class="submenu dropdown-menu toggle-content" id="submenu-{{ subchild_list_handle }}" data-type="content">
+                                            {% for subchildlink in menus[subchild_list_handle].links %}
+                                                <div class="nav-item">
+                                                    <a is="simple-menu-item" class="nav-link d-flex align-items-center {% if subchildlink.active %} active{% endif %} {{ subchildlink.handle }}" href="{{ subchildlink.url }}" name="{{ subchildlink.title }}" title="{{ subchildlink.title }}" aria-label="{{ subchildlink.title }}">
+                                                        {{ subchildlink.title }}
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="nav-item">
+                                        <a is="simple-menu-item" class="nav-link d-flex align-items-center {% if childlink.active %} active{% endif %} {{ childlink.handle }}" href="{{ childlink.url }}" name="{{ childlink.title }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                                            {{ childlink.title }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item {% if link.active %} active{% endif %}">
+                        <a class="nav-link d-flex align-items-center" href="{{ link.url }}" is="simple-menu-item" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+                        {{ link.title }}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
+        {% if secondary_menu %}
+            <nav class="navbar-mobile navbar-mobile-secondary">
+                <ul class="navbar-nav">
+                {% for link in linklists[secondary_menu].links %}
+                    {% assign child_list_handle = link.title | handleize %}
+                        {% if menus[child_list_handle].links != blank %}
+                            <li class="nav-item dropdown {% if link.active %}active{% endif %}">
+                                <a is="drop-down" class="nav-link submenu-toggle d-flex align-items-center justify-content-between" data-href="{{ link.url }}" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}" tabindex="0" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="menu">
+                                    <span>{{ link.title }}</span> <i class="icon ion-ios-arrow-down"></i>
+                                </a>
+                                <div class="submenu dropdown-menu toggle-content" id="submenu-{{ child_list_handle }}" data-type="content">
+                                    {% for childlink in menus[child_list_handle].links %}
+                                        <a class="nav-link d-flex align-items-center {% if childlink.active %} active{% endif %}" is="simple-menu-item" href="{{ childlink.url }}" name="{{ childlink.title }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                                            {{ childlink.title }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% else %}
+                        <li class="nav-item {% if link.active %} active{% endif %}">
+                            <a is="simple-menu-item" class="nav-link d-flex align-items-center" href="{{ link.url }}" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+                                {{ link.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
+        </div>
+    
+        <div class="drawer-footer text-left px-2 py-3 mt-auto">
+        {% if section.settings.mobile_nav_show_social_links %}
+            {% if section.settings.col_3_heading != '' %}
+                <h6 class="small mb-3">{{ section.settings.col_3_social_heading }}</h6>
+            {% endif %}
+    
+            <ul class="list-unstyled list-inline social-icons">
+                {% if section.settings.social_icon_facebook %}
+                <li class="list-inline-item">
+                    <a href="{{ settings.social_facebook_link }}" name="Facebook" title="Facebook" rel="nofollow" aria-label="Facebook"><i class="icon ion-logo-facebook"></i></a>
+                </li>
+                {% endif %}
+        
+                {% if section.settings.social_icon_twitter %}
+                <li class="list-inline-item">
+                    <a href="{{ settings.social_twitter_link }}" name="Twitter" title="Twitter" rel="nofollow" aria-label="Twitter"><i class="icon ion-logo-twitter"></i></a>
+                </li>
+                {% endif %}
+        
+                {% if section.settings.social_icon_instagram %}
+                <li class="list-inline-item">
+                    <a href="{{ settings.social_instagram_link }}" name="Instagram" title="Instagram" rel="nofollow" aria-label="Instagram"><i class="icon ion-logo-instagram"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+        </div>
+    
+    </div>
+</mobile-nav>

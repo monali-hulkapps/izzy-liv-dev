@@ -1,0 +1,18 @@
+{%- assign sortBylable = blank -%}
+{%- for option in collection.sort_options -%}
+    {% if option.value == sort_by %}{%- assign sortBylable = option.name -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+
+<custom-select class="sortby-dropdown">
+    <div class="d-flex default justify-content-between border py-2 px-3"><span class="option_txt">{{ sortBylable }}</span><i class="icon ion-ios-arrow-down ms-auto font-size-lg lh-1"></i></div>
+    <div class="custom--select">
+        <ul class="list-unstyled m-0 toggle-content" data-sortBy data-type="content">
+            {%- for option in collection.sort_options -%}
+            <li data-value="{{ option.value | escape }}" class="form-check py-1">
+                <input type="radio" value="{{ option.value | escape }}" class="sortby_options form-check-input" name="custom_sort_by_{{type}}" id="custom_sort_by-{{type}}-{{ forloop.index }}" {% if option.value == sort_by %} checked{% endif %}/>
+                <label for="custom_sort_by-{{type}}-{{ forloop.index }}" class="option_txt form-check-label">{{ option.name | escape }}</label>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+</custom-select>

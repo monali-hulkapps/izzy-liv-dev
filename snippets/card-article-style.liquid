@@ -1,0 +1,30 @@
+{% assign article_image = article.image.src | img_url %}
+
+<div class="card bg-white text-left">
+
+  {% unless article_image contains 'no-image' %}
+    <div class="card-img">
+      <img srcset="{{ article.image | img_url: '475x' }} 375w,
+          {{ article.image.src | img_url: '578x', crop: 'center' }} 478w"
+          sizes="auto" loading="lazy" class="lazyload"
+          src="{{ article.image.src | img_url: 'pico' }}"
+          alt="{{ article.image.alt | escape }}"
+          width="{{ article.image.width }}"
+          height="{{ article.image.width | divided_by: article.image.aspect_ratio }}" >
+    </div>
+  {% endunless %}
+
+  <div class="card-body">
+    <div class="text-uppercase small text-muted">{{ blog.title}}</div>
+    <h5><a href="{{ article.url }}">{{ article.title }}</a></h5>
+    <div class="small text-muted">
+      <i class="icon ion-md-time text-warning"></i>
+      <time datetime="{{ article.published_at | date: "%a, %b %d, %Y" }}"> {{ article.published_at | date: "%a, %b %d, %Y" }}</time>
+    </div>
+  </div>
+  {% if article.author %}
+    <div class="card-footer bg-transparent">
+      <span class="font-italic font-secondary font-size-md">by</span> <span>{{ article.author }}</span>
+    </div>
+  {% endif %}
+</div>

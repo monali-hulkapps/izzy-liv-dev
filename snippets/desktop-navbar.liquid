@@ -1,0 +1,75 @@
+<ul class="navbar-nav align-items-center me-auto">
+    {% for link in linklists[section.settings.menu].links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if menus[child_list_handle].links != blank %}
+        <li class="nav-item dropdown {% if link.active %}active{% endif %}" >
+          <a data-href="{{ link.url }}" {%- if menus[child_list_handle].links.size > 0 -%}is="drop-down"{%- endif -%} class="nav-link d-flex align-items-center justify-content-between {{ link.handle }}" tabindex="0" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="menu" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+            <span>{{ link.title }}</span> <i class="icon ion-md-arrow-dropdown ms-1"></i>
+          </a>
+          <ul class="dropdown-menu" data-type="content">
+            {% for childlink in menus[child_list_handle].links %}
+              {% assign subchild_list_handle = childlink.title | handleize %}
+              {% if menus[subchild_list_handle].links != blank %}
+                <li class="nav-item dropdown {% if childlink.active %} active{% endif %}" >
+                  <a data-href="{{ childlink.url }}" {%- if menus[subchild_list_handle].links.size > 0 -%}is="drop-down"{%- endif -%} class="nav-link d-flex align-items-center justify-content-between {{ childlink.handle }}" tabindex="0" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="menu" name="{{ childlink.title }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                    <span>{{ childlink.title }}</span> <i class="icon ion-md-arrow-dropdown ms-1"></i>
+                  </a>
+                  <!--  Third level menu goes here -->
+                  <ul class="dropdown-menu" data-type="content">
+                    {% for subchildlink in menus[subchild_list_handle].links %}
+                      <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center justify-content-between{% if subchildlink.active %} active{% endif %} {{ subchildlink.handle }}" is="simple-menu-item" href="{{ subchildlink.url }}" name="{{ subchildlink.title }}" title="{{ subchildlink.title }}" aria-label="{{ subchildlink.title }}">
+                          {{ subchildlink.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center justify-content-between{% if childlink.active %} active{% endif %} {{ childlink.handle }}" is="simple-menu-item" href="{{ childlink.url }}" name="{{ childlink.title }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                    {{ childlink.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li class="nav-item {% if link.active %} active{% endif %}">
+          <a class="nav-link {{ link.handle }}" href="{{ link.url }}" is="simple-menu-item" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <ul class="navbar-nav navbar-icon-links align-items-center ms-auto">
+    {% if shop.customer_accounts_enabled %}
+      <li class="nav-item">
+        <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" name="account" title="account" rel="nofollow" aria-label="Account">
+          <i class="icon ion-md-contact"></i>
+        </a>
+      </li>
+    {% endif %}
+    {%- if settings.enable_search -%}
+    <li class="nav-item">
+      <a href="{{ routes.search_url }}" class="nav-link modal__toggle open-searchform" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+        <span class="icon ion-md-search"></span>
+      </a>
+    </li>
+    {%- endif -%}
+    <li class="nav-item">
+      <a href="{{ routes.cart_url }}" class="nav-link header__icon--cart" id="cart-icon-desktop" rel="nofollow" name="cart" title="cart" rel="nofollow" aria-label="Cart">
+        <i class="icon ion-md-cart align-middle"></i>
+        <span class="visually-hidden">{{ 'templates.cart.title' | t }}</span>
+        {%- if cart != empty -%}
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true" class="align-middle ms-2">{{ cart.item_count }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </li>
+  </ul>

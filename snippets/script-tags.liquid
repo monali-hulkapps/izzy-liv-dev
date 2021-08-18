@@ -1,0 +1,48 @@
+{%- comment -%} Swiper Slider JS (Uses Vanilla JS) {%- endcomment -%}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+
+{%- comment -%} Utility JS for helper functions {%- endcomment -%}
+<script src="{{ 'utility.js' | asset_url }}"></script>
+
+{%- comment -%} Global JS with general functions and events {%- endcomment -%}
+<script src="{{ 'global.js' | asset_url }}"></script>
+
+{%- comment -%} Shopify Basic functionalities {%- endcomment -%}
+<script src="{{ 'shopify-basics.js' | asset_url }}"></script>
+
+{%- comment -%} Lazysizes JS for Responsive Image sizes {%- endcomment -%}
+<script src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+
+{%- comment -%} Collection Page Filtering and Sorting {%- endcomment -%}
+{%- if template.name == 'collection' -%}
+<script src="{{ 'component-collection-filters-form.js' | asset_url }}"></script>
+{%- endif -%}
+
+<script src="{{ 'component-product-form.js' | asset_url }}"></script>
+
+{%- comment -%} Product Page JS {%- endcomment -%}
+{%- if template.name == 'product' -%}
+<script src="{{ 'template-product.js' | asset_url }}"></script>
+{%- endif -%}
+
+{%- if settings.enable_search -%}
+<script src="{{ 'component-search.js' | asset_url }}"></script>
+{%- endif -%}
+
+{%- if settings.enable_cart_drawer or template.name == 'cart' -%}
+<script src="{{ 'component-cart-drawer.js' | asset_url }}"></script>
+{%- endif -%}
+
+{%- if template.name == 'login' or template.name == 'register' -%}
+<script src="{{ 'template-account-pages.js' | asset_url }}"></script>
+{%- endif -%}
+
+{%- if template.name == 'addresses' -%}
+<script src="{{ 'template-account-address.js' | asset_url }}"></script>
+{%- endif -%}
+
+{%- comment -%} Customization page JS {%- endcomment -%}
+{%- if request.design_mode -%}
+<script src="{{ 'sections.js' | asset_url }}"></script>
+{%- endif -%}
+
