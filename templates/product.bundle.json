@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "template-product-bundle",
+      "blocks": {
+        "related-products": {
+          "type": "related-products",
+          "settings": {
+          }
+        },
+        "product-tabs": {
+          "type": "product-tabs",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "product-tabs",
+        "related-products"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

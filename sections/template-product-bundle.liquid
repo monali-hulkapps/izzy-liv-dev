@@ -1,12 +1,252 @@
+<div data-section-id="{{ section.id }}" data-template="product" class="{% if product.has_only_default_variant %}only-default-variant{% endif %}">
+  
+  {%- render 'template-product' -%}
+  
+  {% for block in section.blocks %}
+    {% case block.type %}
+    {% when 'product-tabs' %}
+      {% if block.settings.enable_product_tabs %}
+        {% include 'block-product-tabs' %}
+      {% endif %}
+    {% when 'related-products' %}
+      {% if block.settings.enable_related_products %}
+        {% include 'block-related-products' %}
+      {% endif %}
+    {% endcase %}
+  {% endfor %}
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "template-product-bundle",
+  "tag": "section",
+  "class": "product-section spaced-section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "product-tabs",
+      "name": "Product Tabs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_product_tabs",
+          "label": "Enabled?"
+        },
+        {
+          "type": "checkbox",
+          "id": "product_tabs_fluid_layout",
+          "label": "Full Width Layout?",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Tabs"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_descripion_tab",
+          "label": "Enable Description Tab?"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_tab_1",
+          "label": "Enable Custom Tab 1?"
+        },
+        {
+          "type": "text",
+          "id": "tab_1_title",
+          "label": "Tab 1 Title",
+          "default": "Tab Title 1"
+        },
+        {
+          "type": "page",
+          "id": "tab_1_content",
+          "label": "Tab 1 Content"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_tab_2",
+          "label": "Enable Custom Tab 2?"
+        },
+        {
+          "type": "text",
+          "id": "tab_2_title",
+          "label": "Tab 2 Title",
+          "default": "Tab Title 2"
+        },
+        {
+          "type": "textarea",
+          "id": "tab_2_content",
+          "label": "Tab 2 Content"
+        }
+      ]
+    },
+    {
+      "type": "related-products",
+      "name": "Related Products",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_related_products",
+          "label": "Enabled?"
+        },
+        {
+          "type": "checkbox",
+          "id": "related_products_fluid_layout",
+          "label": "Full Width Layout?",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "related_products_section_padding",
+          "label": "Section Padding?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "related_products_section_no_gutters",
+          "label": "No Gutters?",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "related_products_nav_arrows",
+          "label": "Arrows Navigation",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "related_products_nav_dots",
+          "label": "Dots Navigation",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "related_products_view",
+          "label": "Total Items to Show",
+          "min": 0,
+          "max": 16,
+          "step": 1,
+          "default": 9
+        },
+        {
+          "type": "range",
+          "id": "related_products_auto_play",
+          "label": "Autoplay",
+          "info": "Duration of animation between slides (in seconds). Set to zero if you don't want the slider to autoplay.",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "related_products_heading_txt",
+          "label": "Heading Text",
+          "default": "Related Products"
+        },
+        {
+          "type": "header",
+          "content": "Styling"
+        },
+        {
+          "type": "color",
+          "id": "related_products_section_bg_color",
+          "label": "Background Color",
+          "default": "#F8F9FA"
+        },
+        {
+          "type": "color",
+          "id": "related_products_section_color",
+          "label": "Text Color",
+          "default": "#343a40"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Template"
+    },
+    {
+      "type": "select",
+      "id": "template_type",
+      "label": "Template Type",
+      "options": [
+        {
+          "value": "classic-horizontal",
+          "label": "Classic: Horizontal Thumbs"
+        },
+        {
+          "value": "classic-vertical",
+          "label": "Classic: Vertical Thumbs"
+        }
+      ],
+      "default": "classic-horizontal"
+    },
+    {
+      "type": "paragraph",
+      "content": "Classic Horizontal Thumbs: Product Thumbnails below."
+    },
+    {
+      "type": "paragraph",
+      "content": "Classic Vertical Thumbs: Product Thumbnails on Left."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "fluid_layout",
+      "label": "Full Width Layout?",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Features"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor?",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_share",
+      "label": "Show Social Share?",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_images_zoom",
+      "label": "Enable Images Zoom?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dynamic_checkout",
+      "label": "Enable Dynamic checkout Buttons?",
+      "default": false
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
