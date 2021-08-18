@@ -6,7 +6,7 @@
 {{ 'custom-product.css' | asset_url | stylesheet_tag }}
 
 
-{{template}}
+{% assign templateType = template.suffix %}
 
 <section class="section-content template-product-classic">
     <div class="{% if fluid_layout %}container-fluid{% else %}container{% endif %}">
