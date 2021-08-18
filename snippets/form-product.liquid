@@ -1,3 +1,4 @@
+{% assign templateType = template.suffix %}
 <product-form class="product-form">
   {%- assign product_form_id = 'product-form-' | append: product.id -%}
 {% form 'product', product, id: product_form_id, class: "mt-5", data-product-form: "", data-product-id: product.id, data-type: 'add-to-cart-form', data-format: format %}
