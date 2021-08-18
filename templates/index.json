@@ -27,6 +27,7 @@
         "5f138ef3-db88-4ec2-9c76-525b0af787bf": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/bundlehallowen4for30_bundlehome.jpg",
             "slide_bg_color": "#ffffff",
             "enable_overlay": true,
             "overlay_bg_color": "#ffffff",
