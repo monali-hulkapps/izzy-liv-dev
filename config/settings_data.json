@@ -19,7 +19,7 @@
           "logo": "shopify:\/\/shop_images\/logo2.png",
           "logo_width": 100,
           "logo_position": "middle-left",
-          "menu": "footer",
+          "menu": "main-menu",
           "main_menu_linklist": "footer",
           "secondary_menu_linklist": "",
           "mobile_nav_show_social_links": true,
