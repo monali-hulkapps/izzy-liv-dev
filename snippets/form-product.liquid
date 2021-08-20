@@ -101,11 +101,16 @@
       
       
       <div class="Bundles">
+        {{product.metafields.my_fields['bundle_sub_products'] | parse_json }}
         
-        
-        {% capture jsonExample %}
-        	{{product.metafields.my_fields['bundle_sub_products'] | parse_json }}
-        {% endcapture %}
+       {% assign qas = product.metafields.my_fields.bundle_sub_products %} // product.metafields.{namespace}.{key}
+{{qas}}
+        {% for qa in qas %}
+          <div style="border-bottom: 1px solid #222222;">
+            <p> {{ qa.question }} </p>
+            <p style="font-weight:bold"> {{ qa.answer }} </p>
+          </div>
+        {% endfor %}
        {{jsonExample.products}}
         
         
