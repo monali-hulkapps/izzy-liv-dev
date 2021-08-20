@@ -251,17 +251,6 @@
 }
 {% endschema %}
 {% javascript %}
-
-
-const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
-console.log(jsonProducts.products.length); 
-let addBundleHTML1 = ``;
-for(let i in jsonProducts.products){
-	let subProduct = jsonProducts.products[i];
-	let currentVariant = subProduct.variants[0];
-	console.log('currentVariant:',currentVariant);
-	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;
-    
 // 	addBundleHTML1 += `<div class="card-img text-center" >`;
 //    if(subProduct.image){
 //    	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
@@ -273,7 +262,18 @@ for(let i in jsonProducts.products){
 //        }
 //       addBundleHTML1 += `</a>`;
 //    }
-// 	addBundleHTML1 += `</div>`; 
+// 	addBundleHTML1 += `</div>`;
+
+const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
+console.log(jsonProducts.products.length); 
+let addBundleHTML1 = ``;
+for(let i in jsonProducts.products){
+	let subProduct = jsonProducts.products[i];
+	let currentVariant = subProduct.variants[0];
+	console.log('currentVariant:',currentVariant);
+	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;
+    
+ 
 
 	addBundleHTML1 += `<div class="card-body">`;
     addBundleHTML1 += `<h6 class="card-title m-0">`;
