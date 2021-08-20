@@ -251,34 +251,7 @@
 }
 {% endschema %}
 {% javascript %}
-function _getSizedImageUrl(src, size) {
-      const app = this;
-      let match;
 
-      if (src === null) {
-        return;
-      }
-
-      if (typeof (src) === 'object') {
-        src = src.src;
-      }
-
-      if (size === 'master') {
-        src = app._removeProtocol(src);
-      }
-
-      if (src) {
-        match = src.match(/\.(jpg|jpeg|gif|png|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i);
-      }
-
-      if (match) {
-        const prefix = src.split(match[0]);
-        const suffix = match[0];
-
-        src = app._removeProtocol(`${prefix[0]}_${size}${suffix}`);
-      }
-      return src;
-    }
 
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
 console.log(jsonProducts.products.length); 
