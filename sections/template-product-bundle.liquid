@@ -252,8 +252,8 @@
 {% endschema %}
 {% javascript %}
 const jsonProducts = JSON.stringify(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
-console.log(jsonProducts.products);
-for(var subProduct in jsonProducts.products){
+console.log(jsonProducts.products.length);
+for(var ){
 console.log(subProduct);
 }
 {% endjavascript %}
