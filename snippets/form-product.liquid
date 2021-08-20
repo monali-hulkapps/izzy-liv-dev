@@ -104,7 +104,7 @@
         
         
        {% assign qas = product.metafields.my_fields.bundle_sub_products | parse_json  %} 
-{{qas.products}}
+{{qas}}
         {% for qa in qas %}
           <div style="border-bottom: 1px solid #222222;">
             <p> {{ qa.question }} </p>
