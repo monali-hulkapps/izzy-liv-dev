@@ -253,7 +253,7 @@
 {% javascript %}
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
 console.log(jsonProducts.products.length); 
-for(let subProduct in jsonProducts.products){
-	console.log(subProduct); 
+for(let i in jsonProducts.products){
+	console.log(jsonProducts.products[i]); 
 }
 {% endjavascript %}
