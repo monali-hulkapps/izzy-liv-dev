@@ -293,9 +293,9 @@ for(let i in jsonProducts.products){
     if(subProduct.image){
     	addBundleHTML += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
         var height0 = parseInt(subProduct.image.width)/parseInt(subProduct.image.aspect_ratio);
-        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.image.src, 'pico')}"`
+        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.image.src, 'pico')}" 
                 srcset="${_getSizedImageUrl(subProduct.image.src, '375x')}"
-                sizes="auto"
+                sizes="auto"  loading="lazy"
                 class="lazyload w-100"
                 data-feauredImage
                 alt="${subProduct.image.alt}"
@@ -305,7 +305,7 @@ for(let i in jsonProducts.products){
             var height1 = parseInt(subProduct.image[1].width)/parseInt(subProduct.image[1].aspect_ratio)
         addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.images[1].src, 'pico')}"
                 srcset="${_getSizedImageUrl(subProduct.images[1].src, '375x')}"
-                sizes="auto"
+                sizes="auto"  loading="lazy"
                 class="lazyload w-100"
                 data-hoverImage
                 alt="${subProduct.images[1].alt}"
