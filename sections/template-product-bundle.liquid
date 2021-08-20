@@ -256,6 +256,8 @@ console.log(jsonProducts.products.length);
 let addBundleHTML = '';
 for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
+	let currentVariant = subProduct.variants[0];
+	console.log('currentVariant:',currentVariant);
 	addBundleHTML += '<div class="card card-product card-product-style-1 text-left" data-product-grid>';
 
 	addBundleHTML += '</div>';
