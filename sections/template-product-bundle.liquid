@@ -263,7 +263,7 @@ for(let i in jsonProducts.products){
     addBundleHTML += '<h6 class="card-title m-0">';
     addBundleHTML += `<a class="product-link" href="/products/${subProduct.handle}">${subProduct.title}</a>`;
     addBundleHTML += '</h6>';
-    addBundleHTML += '<p>{{ product.vendor }}</p>';
+    addBundleHTML += `<p>${subProduct.vendor}</p>`;  
   	addBundleHTML += '</div>';
 	addBundleHTML += '</div>';  
 	console.log(jsonProducts.products[i]);  
