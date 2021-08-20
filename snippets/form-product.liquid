@@ -106,7 +106,7 @@
         {% capture jsonExample %}
         	{{product.metafields.my_fields['bundle_sub_products'] | parse_json }}
         {% endcapture %}
-       
+       {{jsonExample.products}}
         {% for subprod in jsonExample %}
         	<pre>{{subprod}}</pre>
         {% endfor %}
