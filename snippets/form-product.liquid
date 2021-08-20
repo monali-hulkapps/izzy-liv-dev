@@ -103,9 +103,10 @@
       <div class="Bundles">
         
         
-        
-        {% assign subProds = product.metafields.my_fields['bundle_sub_products'] %}
-        <pre>{{subProds}}</pre>
+        {% capture jsonExample %}
+        	{{product.metafields.my_fields['bundle_sub_products']}}
+        {% endcapture %}
+        <pre>{{jsonExample}}</pre>
         {% for subprod in subProds %}
         	<pre>{{subprod}}</pre>
         {% endfor %}
