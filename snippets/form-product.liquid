@@ -101,9 +101,9 @@
       
       
       <div class="Bundles">
-        {{product.metafields.my_fields['bundle_sub_products'] | parse_json }}
         
-       {% assign qas = product.metafields.my_fields.bundle_sub_products %} // product.metafields.{namespace}.{key}
+        
+       {% assign qas = product.metafields.my_fields.bundle_sub_products | parse_json  %} 
 {{qas.products}}
         {% for qa in qas %}
           <div style="border-bottom: 1px solid #222222;">
