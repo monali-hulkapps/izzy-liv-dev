@@ -282,18 +282,18 @@ function _getSizedImageUrl(src, size) {
 
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
 console.log(jsonProducts.products.length); 
-let addBundleHTML = ``;
+let addBundleHTML1 = ``;
 for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
 	let currentVariant = subProduct.variants[0];
 	console.log('currentVariant:',currentVariant);
-	addBundleHTML += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;
+	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;
     
-	addBundleHTML += `<div class="card-img text-center" >`;
+	addBundleHTML1 += `<div class="card-img text-center" >`;
     if(subProduct.image){
-    	addBundleHTML += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
+    	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
         var height0 = parseInt(subProduct.image.width)/parseInt(subProduct.image.aspect_ratio);
-        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.image.src, 'pico')}" 
+        addBundleHTML1 += `<img src="${_getSizedImageUrl(subProduct.image.src, 'pico')}" 
                 srcset="${_getSizedImageUrl(subProduct.image.src, '375x')}"
                 sizes="auto"  loading="lazy"
                 class="lazyload w-100"
@@ -303,7 +303,7 @@ for(let i in jsonProducts.products){
                 height="${height0}" >`;
             if(subProduct.images[1]){
             var height1 = parseInt(subProduct.image[1].width)/parseInt(subProduct.image[1].aspect_ratio);
-        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.images[1].src, 'pico')}"
+        addBundleHTML1 += `<img src="${_getSizedImageUrl(subProduct.images[1].src, 'pico')}"
                 srcset="${_getSizedImageUrl(subProduct.images[1].src, '375x')}"
                 sizes="auto"  loading="lazy"
                 class="lazyload w-100"
@@ -313,17 +313,17 @@ for(let i in jsonProducts.products){
                 height="${height1}" >`;
             
           }
-        addBundleHTML += `</a>`;
+        addBundleHTML1 += `</a>`;
     }
-  	addBundleHTML += `</div>`;
+  	addBundleHTML1 += `</div>`;
 
-	addBundleHTML += `<div class="card-body">`;
-    addBundleHTML += `<h6 class="card-title m-0">`;
-    addBundleHTML += `<a class="product-link" href="/products/${subProduct.handle}">${subProduct.title}</a>`;
-    addBundleHTML += `</h6>`;
-    addBundleHTML += `<p>${subProduct.vendor}</p>`;  
-  	addBundleHTML += `</div>`;
-	addBundleHTML += `</div>`; 
+	addBundleHTML1 += `<div class="card-body">`;
+    addBundleHTML1 += `<h6 class="card-title m-0">`;
+    addBundleHTML1 += `<a class="product-link" href="/products/${subProduct.handle}">${subProduct.title}</a>`;
+    addBundleHTML1 += `</h6>`;
+    addBundleHTML1 += `<p>${subProduct.vendor}</p>`;  
+  	addBundleHTML1 += `</div>`;
+	addBundleHTML1 += `</div>`; 
 	console.log(jsonProducts.products[i]);  
 } 
 document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML; 
