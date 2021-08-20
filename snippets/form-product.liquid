@@ -1,3 +1,8 @@
+<div class="Bundles">
+       <script data-bundle-json type="text/javascript">
+         {{product.metafields.my_fields.bundle_sub_products}}
+        </script>      
+</div>
 {% assign templateType = template.suffix %}
 <product-form class="product-form">
   {%- assign product_form_id = 'product-form-' | append: product.id -%}
@@ -100,17 +105,7 @@
       
       
       
-      <div class="Bundles">
-        
-       <script data-bundle-json type="text/javascript">
-         {{product.metafields.my_fields.bundle_sub_products}}
-        </script>
-       
-        
-        
-         
       
-      </div>
       
       
      
