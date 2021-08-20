@@ -261,7 +261,7 @@ for(let i in jsonProducts.products){
 	addBundleHTML += '<div class="card card-product card-product-style-1 text-left" data-product-grid>';
     addBundleHTML += '<div class="card-body">';
     addBundleHTML += '<h6 class="card-title m-0">';
-    addBundleHTML += `<a class="product-link" href="{{ subProduct.url | within: collection }}">${subProduct.title}</a>`;
+    addBundleHTML += `<a class="product-link" href="${subProduct.url}">${subProduct.title}</a>`;
     addBundleHTML += '</h6>';
     addBundleHTML += '<p>{{ product.vendor }}</p>';
   	addBundleHTML += '</div>';
