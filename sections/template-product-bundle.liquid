@@ -284,9 +284,9 @@ for(let i in jsonProducts.products){
 	addBundleHTML1 += `<div class="card-footer bg-transparent pt-0 border-0 pb-3">`;
     addBundleHTML1 += `<div class="mb-3">`;
     if(currentVariant.compare_at_price > currentVariant.price){
-    	addBundleHTML1 += `<s class="price small m-0 p-0 text-gray-600 me-1 money" data-comparePrice>${Shopify.formatMoney(currentVariant.compare_at_price, window.globalVariables.money_format)}</s>`;
+    	addBundleHTML1 += `<s class="price small m-0 p-0 text-gray-600 me-1 money" data-comparePrice>${Shopify.formatMoney(currentVariant.compare_at_price, {{ shop.money_format | json }})}</s>`;
     }
-    addBundleHTML1 += `<span class="price m-0 p-0 money" data-currentPrice>${Shopify.formatMoney(currentVariant.price, window.globalVariables.money_format)}</span>`;
+    addBundleHTML1 += `<span class="price m-0 p-0 money" data-currentPrice>${Shopify.formatMoney(currentVariant.price, {{ shop.money_format | json }})}</span>`;
     addBundleHTML1 += `</div>`;
 
     
