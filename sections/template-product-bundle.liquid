@@ -251,21 +251,79 @@
 }
 {% endschema %}
 {% javascript %}
+function _getSizedImageUrl(src, size) {
+      const app = this;
+      let match;
+
+      if (src === null) {
+        return;
+      }
+
+      if (typeof (src) === 'object') {
+        src = src.src;
+      }
+
+      if (size === 'master') {
+        src = app._removeProtocol(src);
+      }
+
+      if (src) {
+        match = src.match(/\.(jpg|jpeg|gif|png|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i);
+      }
+
+      if (match) {
+        const prefix = src.split(match[0]);
+        const suffix = match[0];
+
+        src = app._removeProtocol(`${prefix[0]}_${size}${suffix}`);
+      }
+      return src;
+    }
+
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
 console.log(jsonProducts.products.length); 
-let addBundleHTML = '';
+let addBundleHTML = ``;
 for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
 	let currentVariant = subProduct.variants[0];
 	console.log('currentVariant:',currentVariant);
-	addBundleHTML += '<div class="card card-product card-product-style-1 text-left" data-product-grid>';
-    addBundleHTML += '<div class="card-body">';
-    addBundleHTML += '<h6 class="card-title m-0">';
+	addBundleHTML += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;
+    
+	addBundleHTML += `<div class="card-img text-center" >`;
+    if(subProduct.image){
+    	addBundleHTML += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
+        var height0 = parseInt(subProduct.image.width)/parseInt(subProduct.image.aspect_ratio);
+        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.image.src, 'pico')}"`
+                srcset="${_getSizedImageUrl(subProduct.image.src, '375x')}"
+                sizes="auto"  loading="lazy"
+                class="lazyload w-100"
+                data-feauredImage
+                alt="${subProduct.image.alt}"
+                width="${subProduct.image.width}"
+                height="${height0}" >`;
+            if(subProduct.images[1]){
+            var height1 = parseInt(subProduct.image[1].width)/parseInt(subProduct.image[1].aspect_ratio)
+        addBundleHTML += `<img src="${_getSizedImageUrl(subProduct.images[1].src, 'pico')}"
+                srcset="${_getSizedImageUrl(subProduct.images[1].src, '375x')}"
+                sizes="auto"  loading="lazy"
+                class="lazyload w-100"
+                data-hoverImage
+                alt="${subProduct.images[1].alt}"
+                width="${subProduct.images[1].width}"
+                height="${height1}" >`;
+            
+          }
+        addBundleHTML += `</a>`;
+    }
+  	addBundleHTML += `</div>`;
+
+	addBundleHTML += `<div class="card-body">`;
+    addBundleHTML += `<h6 class="card-title m-0">`;
     addBundleHTML += `<a class="product-link" href="/products/${subProduct.handle}">${subProduct.title}</a>`;
-    addBundleHTML += '</h6>';
+    addBundleHTML += `</h6>`;
     addBundleHTML += `<p>${subProduct.vendor}</p>`;  
-  	addBundleHTML += '</div>';
-	addBundleHTML += '</div>';  
+  	addBundleHTML += `</div>`;
+	addBundleHTML += `</div>`; 
 	console.log(jsonProducts.products[i]);  
 } 
 document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML; 
