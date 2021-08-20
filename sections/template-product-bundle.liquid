@@ -259,7 +259,14 @@ for(let i in jsonProducts.products){
 	let currentVariant = subProduct.variants[0];
 	console.log('currentVariant:',currentVariant);
 	addBundleHTML += '<div class="card card-product card-product-style-1 text-left" data-product-grid>';
-
+    addBundleHTML += '<div class="card-body">';
+    addBundleHTML += '<h6 class="card-title m-0">';
+    addBundleHTML += '<a class="product-link" href="{{ product.url | within: collection }}">{{ product.title }}</a>';
+    addBundleHTML += '</h6>';
+    {%- if settings.show_vendor -%}
+     addBundleHTML += '<p>{{ product.vendor }}</p>';
+    {%- endif -%}
+  </div>
 	addBundleHTML += '</div>';
 	console.log(jsonProducts.products[i]); 
 } 
