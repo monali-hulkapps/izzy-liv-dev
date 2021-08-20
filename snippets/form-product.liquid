@@ -103,7 +103,7 @@
       <div class="Bundles">
         
         
-       {% assign qas = product.metafields.my_fields.bundle_sub_products | parse_json  %} 
+       {% assign qas = product.metafields.my_fields.bundle_sub_products | json  %} 
 
         {% for qa in qas %}
         --{{qa}}
