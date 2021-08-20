@@ -251,6 +251,6 @@
 }
 {% endschema %}
 {% javascript %}
-const _jsonProducts = JSON.stringify(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
-console.log(_jsonProducts);
+const jsonProducts = JSON.stringify(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
+console.log(jsonProducts);
 {% endjavascript %}
