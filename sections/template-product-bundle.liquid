@@ -290,6 +290,7 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `</div>`;
 
 	addBundleHTML1 += `<product-form>`;
+	console.log('sub variant',subProduct.variants.length); 
 	if(subProduct.variants.length > 1){
 		for(let j in subProduct.variants){
 			let subVariant = subProduct.variants[j];
