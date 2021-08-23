@@ -135,8 +135,9 @@
       let options = (this.variantPicker == 'variant-select') ? this._getOptionsFromSelect() : this._getOptionsFromRadio();
   
       let variantsArray = this._getVariantData();
+      console.log(variantsArray); 
       variantsArray.find((variant) => {
-        console.log(variant.options); 
+        
         // get true or false based on options value presented in variant
         // value format would be [true/false,true/fasle,true/false] boolean value based on options present or not
         let mappedValues = variant.options.map((option, index) => {
