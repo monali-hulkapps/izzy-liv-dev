@@ -130,7 +130,8 @@
             </div>
         </div>
       {%- paginate collections by 500 -%}
-      {% for product in collections.bundle-subitems-collection.products %}
+      {% for subproduct in collections.bundle-subitems-collection.products %}
+      
       <div class="row justify-content-center Bundles-1">       		
     	
               {{product.metafields.my_fields.bundle_sub_products_handle}} 
