@@ -298,7 +298,7 @@ for(let i in jsonProducts.products){
 			addBundleHTML1 += ``;
 		}
 	}else{
-		addBundleHTML1 += `<select><option selected value="${currentVariant.id}"></option></select>`;  
+		addBundleHTML1 += `<select style="display:none"><option selected value="${currentVariant.id}"></option></select>`; 
 	}
 	addBundleHTML1 += `</product-form>`;
 
@@ -309,5 +309,5 @@ for(let i in jsonProducts.products){
 
 	
 } 
-document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML1; 
+document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML1;  
 {% endjavascript %}     
