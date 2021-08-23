@@ -139,7 +139,7 @@
       
       
       {% assign qas = product.metafields.my_fields.bundle_sub_products %} // product.metafields.{namespace}.{key}
-
+      <pre>{{qas}}</pre>
       {% for qa in qas %}
         <div style="border-bottom: 1px solid #222222;">
           <p> {{ qa.question }} </p>
