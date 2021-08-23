@@ -250,7 +250,7 @@
   ]
 }
 {% endschema %} 
-{% javascript %}
+<script>
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
 console.log(jsonProducts.products.length); 
 let addBundleHTML1 = ``;
@@ -312,6 +312,9 @@ for(let i in jsonProducts.products){
 	}else{
 		addBundleHTML1 += `<select style="display:none"><option selected value="${currentVariant.id}"></option></select>`; 
 	}
+
+
+	addBundleHTML1 += `addBundleHTML1`;
 	addBundleHTML1 += `</form>`;
 	addBundleHTML1 += `</product-form>`;
 
@@ -323,4 +326,4 @@ for(let i in jsonProducts.products){
 	
 } 
 document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML1;  
-{% endjavascript %}     
+</script>
