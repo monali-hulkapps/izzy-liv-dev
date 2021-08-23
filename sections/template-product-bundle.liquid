@@ -268,18 +268,7 @@ for(let i in jsonProducts.products){
 	addBundleHTML1 += `<div class="card-img text-center">`;
 	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
     addBundleHTML1 += `<img src="${subProduct.image.src}" sizes="auto"  loading="lazy" class="lazyload w-100" data-feauredImage alt="${alt}" width="${width}" height="${height}" > `;     
-	/*
-	if(subProduct.images.length > 1){
-      let alt = subProduct.images[1].alt != '' ? subProduct.images[1].alt : subProduct.title ;
-      let height = subProduct.images[1].height != '' ? subProduct.images[1].height : '';
-      let width = subProduct.images[1].width != '' ? subProduct.images[1].width : '';
-		addBundleHTML1 += `<img src="${subProduct.images[1].src}" sizes="auto"  loading="lazy" class="lazyload w-100" data-hoverImage alt="${alt}" width="${width}" height="${height}" >`;
-	}  
-	*/  
- 
-	
-
-    addBundleHTML1 += `</a>`; 
+	addBundleHTML1 += `</a>`; 
 	addBundleHTML1 += `</div>`;
 
 	addBundleHTML1 += `<div class="card-body">`;
