@@ -298,11 +298,11 @@ for(let i in jsonProducts.products){
 			let subOption = subProduct.options[j];
 			console.log('sub Option',subOption); 
 			addBundleHTML1 += `<div class="product-form__input product-form__input--dropdown mb-4" data-optionindex="${j}">`;
-  			addBundleHTML1 += `<label class="fw-medium text-uppercase font-size-sm mb-2" for="Option-${subProduct.id}-${j}">${subOption[j].name}</label>`;
+  			addBundleHTML1 += `<label class="fw-medium text-uppercase font-size-sm mb-2" for="Option-${subProduct.id}-${j}">${subOption.name}</label>`;
             addBundleHTML1 += `<div class="select">`;
-    	    addBundleHTML1 += `<select id="Option-${subProduct.id}-${j}" class="form-select variant_selector" name="options[${subOption[j].name}]" form="product-form-${subProduct.id}">`;
+    	    addBundleHTML1 += `<select id="Option-${subProduct.id}-${j}" class="form-select variant_selector" name="options[${subOption.name}]" form="product-form-${subProduct.id}">`;
       		for(let k in subOption[j].values){
-      			addBundleHTML1 += `<option value="${subOption[j].values[k]}">${subOption[j].values[k]}</option>`;
+      			addBundleHTML1 += `<option value="${subOption.values[k]}">${subOption.values[k]}</option>`;
       		}
     		addBundleHTML1 += `</select>`;
   			addBundleHTML1 += `</div>`;
