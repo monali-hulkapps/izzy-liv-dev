@@ -129,20 +129,6 @@
             </div>
         </div>
       
-      
-      {% assign qas = product.metafields.my_fields.bundle_sub_products %} 
-      --<pre>{{qas['products'].items}}</pre>--
-
-      {% for qa in qas %}
-       
-      <div style="border-bottom: 1px solid #222222;">
-          <p> {{ qa.question }} </p>
-          <p style="font-weight:bold"> {{ qa.answer }} </p>
-        </div>
-      {% endfor %}
-      
-      
-      
       <div class="row justify-content-center Bundles">
        		<script data-bundle-json type="text/javascript">
              {{product.metafields.my_fields.bundle_sub_products}}
