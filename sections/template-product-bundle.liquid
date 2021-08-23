@@ -258,6 +258,7 @@ for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
 	let currentVariant = subProduct.variants[0];
 	console.log('currentVariant:',currentVariant);
+	addBundleHTML1 += `<div class="col-12 col-lg-4 col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">`;
 	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;   
  
 
@@ -288,6 +289,7 @@ for(let i in jsonProducts.products){
     
     addBundleHTML1 += `</div>`;
 
+	addBundleHTML1 += `</div>`; 
 	addBundleHTML1 += `</div>`; 
 	console.log(jsonProducts.products[i]);    
 
