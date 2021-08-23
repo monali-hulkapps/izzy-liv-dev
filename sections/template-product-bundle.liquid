@@ -290,11 +290,11 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `</div>`;
 
 	
-// 	addBundleHTML1 += `<form method="post" action="/cart/add" id="product-form-${subProduct.id}" accept-charset="UTF-8" class="mt-5" enctype="multipart/form-data" data-product-form="" data-product-id="${subProduct.id}" data-type="add-to-cart-form">`;
-//   	addBundleHTML1 += `<product-form>`;
+	addBundleHTML1 += `<form method="post" action="/cart/add" id="product-form-${subProduct.id}" accept-charset="UTF-8" class="mt-5" enctype="multipart/form-data" data-product-form="" data-product-id="${subProduct.id}" data-type="add-to-cart-form">`;
+  	addBundleHTML1 += `<product-form>`;
 // 	console.log('sub variant length',subProduct.variants.length);  
-	if(subProduct.variants.length > 1){ 
-		addBundleHTML1 += `<div class="no-js-hidden" data-url="/products/${subProduct.handle}" data-type="variant-select">`;
+	if(subProduct.variants.length > 1){
+		addBundleHTML1 += `<variant-selects class="no-js-hidden" data-url="/products/${subProduct.handle}" data-type="variant-select">`;
 		for(let j in subProduct.options){
 			let subOption = subProduct.options[j];
 // 			console.log('sub Option',subOption);  
@@ -309,7 +309,7 @@ for(let i in jsonProducts.products){
   			addBundleHTML1 += `</div>`;
 			addBundleHTML1 += `</div>`; 
 		}
-		addBundleHTML1 += `</div>`;
+		addBundleHTML1 += `</variant-selects>`;
 	}else{
 		addBundleHTML1 += `<select style="display:none"><option selected value="${currentVariant.id}"></option></select>`; 
 	}
@@ -336,8 +336,8 @@ for(let i in jsonProducts.products){
 
   	addBundleHTML1 += `<div class="variantsJSON-${subProduct.id}" data-variantJSON type="application/json" style="display:none;">${JSON.stringify(subProduct.variants)}</div>`;
 	addBundleHTML1 += `<button class="btn btn-primary btn-sm flex-grow-1" type="submit" name="add" aria-label="{{ 'products.product.add_to_cart' | t | escape }}"><span class="add-text">{%- if current_variant.available -%}{{ 'products.product.add_to_cart' | t }}{%- else-%}{{ 'products.product.sold_out' | t }}{%- endif -%}</span><span class="spinner"></span></button>`;
-// 	addBundleHTML1 += `</product-form>`;
-// 	addBundleHTML1 += `</form>`;
+	addBundleHTML1 += `</product-form>`;
+	addBundleHTML1 += `</form>`;
 
 	addBundleHTML1 += `</div>`; 
 	addBundleHTML1 += `</div>`;   
