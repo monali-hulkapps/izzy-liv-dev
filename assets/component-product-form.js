@@ -140,9 +140,9 @@
         console.log(variant); 
         // get true or false based on options value presented in variant
         // value format would be [true/false,true/fasle,true/false] boolean value based on options present or not
-//         let mappedValues = variant.options.map((option, index) => {
-//           return options[index] === option;
-//         });
+        let mappedValues = variant.options.map((option, index) => {
+          return options[index] === option;
+        });
   
         // assign variant details to this.currentVariant if all options are present
         if(!mappedValues.includes(false)){
