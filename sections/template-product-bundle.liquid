@@ -335,9 +335,9 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `</div>`;
 
   	addBundleHTML1 += `<div class="variantsJSON-${subProduct.id}" data-variantJSON type="application/json" style="display:none;">${JSON.stringify(subProduct.variants)}</div>`;
-	
+	addBundleHTML1 += `<button class="btn btn-primary btn-sm flex-grow-1" type="submit" name="add" aria-label="{{ 'products.product.add_to_cart' | t | escape }}"><span class="add-text">{%- if current_variant.available -%}{{ 'products.product.add_to_cart' | t }}{%- else-%}{{ 'products.product.sold_out' | t }}{%- endif -%}</span><span class="spinner"></span></button>`;
 	addBundleHTML1 += `</product-form>`;
-addBundleHTML1 += `</form>`;
+	addBundleHTML1 += `</form>`;
 
 	addBundleHTML1 += `</div>`; 
 	addBundleHTML1 += `</div>`; 
