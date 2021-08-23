@@ -297,6 +297,8 @@ for(let i in jsonProducts.products){
 			console.log('sub variant',subVariant); 
 			addBundleHTML1 += ``;
 		}
+	}else{
+	<select style="display:none"><option selected value="${currentVariant.id}"></option></select>
 	}
 	addBundleHTML1 += `</product-form>`;
 
