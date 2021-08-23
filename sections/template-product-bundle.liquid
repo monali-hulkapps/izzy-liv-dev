@@ -313,6 +313,25 @@ for(let i in jsonProducts.products){
 		addBundleHTML1 += `<select style="display:none"><option selected value="${currentVariant.id}"></option></select>`; 
 	}
 
+  
+	addBundleHTML1 += `<div class="quantity-wrapper mb-4" data-qty-container>`;
+    addBundleHTML1 += `<label for="Quantity" class="fw-medium text-uppercase font-size-sm mb-2">{{ 'products.product.quantity.label' | t }}</label>`;
+    addBundleHTML1 += `<div class="input-group input-group-sm">`;
+    addBundleHTML1 += `<div class="input-group-prepend">`;
+    addBundleHTML1 += `<a href="#" class="input-group-text" rel="nofollow" aria-label="{{ 'products.product.quantity.decrease' | t }}" title="{{ 'products.product.quantity.decrease' | t }}" data-for="decrease" data-qty-btn>`;
+    addBundleHTML1 += `<span class="btn-decrease"><i class="icon ion-md-remove"></i></span>`;
+    addBundleHTML1 += `<span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>`;
+    addBundleHTML1 += `</a>`;
+    addBundleHTML1 += `</div>`;
+    addBundleHTML1 += `<input type="number" name="quantity" aria-label="{{ 'products.product.quantity.input_label' | t }}" value="1" step="1" min="1" inputmode="numeric" data-qty-input class="quantity form-control text-center" readonly>`;
+    addBundleHTML1 += `<div class="input-group-append">`;
+    addBundleHTML1 += `<a href="#" class="input-group-text" rel="nofollow" aria-label="{{ 'products.product.quantity.increase' | t }}" title="{{ 'products.product.quantity.increase' | t }}" data-for="increase" data-qty-btn>`;
+    addBundleHTML1 += `<span class="btn-increase"><i class="icon ion-md-add"></i></span>`;
+    addBundleHTML1 += `<span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>`;
+    addBundleHTML1 += `</a>`;
+    addBundleHTML1 += `</div>`;
+    addBundleHTML1 += `</div>`;
+    addBundleHTML1 += `</div>`;
 
 	addBundleHTML1 += `addBundleHTML1`;
 	addBundleHTML1 += `</form>`;
