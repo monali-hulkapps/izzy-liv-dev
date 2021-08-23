@@ -1,5 +1,6 @@
 {
   "current": {
+    "enable_product_card_swatches": false,
     "enable_shipping_bar": true,
     "sections": {
       "header": {
