@@ -261,6 +261,12 @@ for(let i in jsonProducts.products){
 	addBundleHTML1 += `<div class="col-12 col-lg-4 col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">`;
 	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;   
  
+	addBundleHTML1 += `<div class="card-img text-center">`;
+	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
+    addBundleHTML1 += `<img src="${subProduct.image.src}" sizes="auto"  loading="lazy" class="lazyload w-100" data-feauredImage alt="{{ product.featured_image.alt | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.width | divided_by: product.featured_image.aspect_ratio }}" > `;     
+	console.log('image',subProduct.image.src); 
+    addBundleHTML1 += `</a>`;
+	addBundleHTML1 += `</div>`;
 
 	addBundleHTML1 += `<div class="card-body">`;
     addBundleHTML1 += `<h6 class="card-title m-0">`;
@@ -269,13 +275,7 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `<p>${subProduct.vendor}</p>`;  
   	addBundleHTML1 += `</div>`;
 
-	addBundleHTML1 += `<div class="card-img text-center">`;
-	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
-    addBundleHTML1 += `<img src="${subProduct.image.src}" sizes="auto"  loading="lazy" class="lazyload w-100" data-feauredImage alt="{{ product.featured_image.alt | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.width | divided_by: product.featured_image.aspect_ratio }}" > `;     
-	console.log('image',subProduct.image.src); 
-
-    addBundleHTML1 += `</a>`;
-	addBundleHTML1 += `</div>`;
+	
 
 	addBundleHTML1 += `<div class="card-footer bg-transparent pt-0 border-0 pb-3">`;
     addBundleHTML1 += `<div class="mb-3">`;
