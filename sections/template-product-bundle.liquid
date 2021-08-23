@@ -270,8 +270,8 @@ for(let i in jsonProducts.products){
 
 	addBundleHTML1 += `<div class="card-img text-center">`;
 	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
-            
-console.log('image',subProduct.image.src);
+    addBundleHTML1 += `<img src="${subProduct.image.src}" sizes="auto"  loading="lazy" class="lazyload w-100" data-feauredImage alt="{{ product.featured_image.alt | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.width | divided_by: product.featured_image.aspect_ratio }}" > `;     
+	console.log('image',subProduct.image.src);
 
     addBundleHTML1 += `</a>`;
 	addBundleHTML1 += `</div>`;
