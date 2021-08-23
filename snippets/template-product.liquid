@@ -131,10 +131,10 @@
         </div>
       {%- paginate collections by 500 -%}
       {% for subproduct in collections.bundle-subitems-collection.products %}
-      
+      {% assign subproductsMeta = product.metafields.my_fields.bundle_sub_products_handle | split:',' %}
       <div class="row justify-content-center Bundles-1">       		
     	
-              {{product.metafields.my_fields.bundle_sub_products_handle}} 
+              
                   
       </div>
       {% endfor %}
