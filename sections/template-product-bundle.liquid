@@ -293,7 +293,7 @@ for(let i in jsonProducts.products){
 // 	addBundleHTML1 += `<form method="post" action="/cart/add" id="product-form-${subProduct.id}" accept-charset="UTF-8" class="mt-5" enctype="multipart/form-data" data-product-form="" data-product-id="${subProduct.id}" data-type="add-to-cart-form">`;
 //   	addBundleHTML1 += `<product-form>`;
 // 	console.log('sub variant length',subProduct.variants.length);  
-	if(subProduct.variants.length > 1){
+	if(subProduct.variants.length > 1){ 
 		addBundleHTML1 += `<variant-selects class="no-js-hidden" data-url="/products/${subProduct.handle}" data-type="variant-select">`;
 		for(let j in subProduct.options){
 			let subOption = subProduct.options[j];
