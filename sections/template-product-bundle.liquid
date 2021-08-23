@@ -289,7 +289,15 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `</div>`;	    
     addBundleHTML1 += `</div>`;
 
-	addBundleHTML1 += ``;
+	addBundleHTML1 += `<product-form>`;
+	if(subProduct.variants.length > 1){
+		for(let j in subProduct.variants){
+			let subVariant = subProduct.variants[j];
+			console.log('sub variant',subVariant); 
+			addBundleHTML1 += ``;
+		}
+	}
+	addBundleHTML1 += `</product-form>`;
 
 
 	addBundleHTML1 += `</div>`; 
