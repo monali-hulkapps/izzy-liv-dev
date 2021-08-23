@@ -268,6 +268,14 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `<p>${subProduct.vendor}</p>`;  
   	addBundleHTML1 += `</div>`;
 
+	addBundleHTML1 += `<div class="card-img text-center">`;
+	addBundleHTML1 += `<a href="/products/${subProduct.handle}" class="d-block product-link" >`;
+            
+console.log('image:',subProduct.image.src);
+
+    addBundleHTML1 += `</a>`;
+	addBundleHTML1 += `</div>`;
+
 	addBundleHTML1 += `<div class="card-footer bg-transparent pt-0 border-0 pb-3">`;
     addBundleHTML1 += `<div class="mb-3">`;
     if(currentVariant.compare_at_price > currentVariant.price){
@@ -276,11 +284,14 @@ for(let i in jsonProducts.products){
     addBundleHTML1 += `<span class="price m-0 p-0 money" data-currentPrice>${Shopify.formatMoney(currentVariant.price, window.globalVariables.money_format)}</span>`;
     addBundleHTML1 += `</div>`;
 
+	
     
     addBundleHTML1 += `</div>`;
 
 	addBundleHTML1 += `</div>`; 
 	console.log(jsonProducts.products[i]);   
+
+	
 } 
 document.querySelectorAll('.Bundles')[0].innerHTML = addBundleHTML1; 
 {% endjavascript %}     
