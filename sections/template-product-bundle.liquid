@@ -252,7 +252,7 @@
 {% endschema %} 
 <script>
 const jsonProducts = JSON.parse(document.querySelectorAll('[data-bundle-json]')[0].innerHTML);
-console.log(jsonProducts.products.length); 
+// console.log(jsonProducts.products.length); 
 let addBundleHTML1 = ``;
 for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
@@ -296,7 +296,7 @@ for(let i in jsonProducts.products){
 		addBundleHTML1 += `<variant-selects class="no-js-hidden" data-url="/products/${subProduct.handle}" data-type="variant-select">`;
 		for(let j in subProduct.options){
 			let subOption = subProduct.options[j];
-			console.log('sub Option',subOption);  
+// 			console.log('sub Option',subOption);  
 			addBundleHTML1 += `<div class="product-form__input product-form__input--dropdown mb-4" data-optionindex="${j}">`;
   			addBundleHTML1 += `<label class="fw-medium text-uppercase font-size-sm mb-2" for="Option-${subProduct.id}-${j}">${subOption.name}</label>`; 
             addBundleHTML1 += `<div class="select">`;
