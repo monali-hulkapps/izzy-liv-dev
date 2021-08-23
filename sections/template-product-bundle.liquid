@@ -257,7 +257,7 @@ let addBundleHTML1 = ``;
 for(let i in jsonProducts.products){
 	let subProduct = jsonProducts.products[i];
 	let currentVariant = subProduct.variants[0];
-	console.log('currentVariant:',currentVariant);
+// 	console.log('currentVariant:',currentVariant);
 	addBundleHTML1 += `<div class="col-12 col-lg-4 col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">`;
 	addBundleHTML1 += `<div class="card card-product card-product-style-1 text-left" data-product-grid>`;   
  
@@ -291,7 +291,7 @@ for(let i in jsonProducts.products){
 
 	addBundleHTML1 += `<product-form>`;
 	addBundleHTML1 += `<form method="post" action="/cart/add" id="product-form-${subProduct.id}" accept-charset="UTF-8" class="mt-5" enctype="multipart/form-data" data-product-form="" data-product-id="${subProduct.id}" data-type="add-to-cart-form">`;
-	console.log('sub variant length',subProduct.variants.length);  
+// 	console.log('sub variant length',subProduct.variants.length);  
 	if(subProduct.variants.length > 1){
 		addBundleHTML1 += `<variant-selects class="no-js-hidden" data-url="/products/${subProduct.handle}" data-type="variant-select">`;
 		for(let j in subProduct.options){
