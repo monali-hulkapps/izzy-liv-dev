@@ -297,7 +297,20 @@ for(let i in jsonProducts.products){
 		for(let j in subProduct.options){
 			let subOption = subProduct.options[j];
 			console.log('sub Option',subOption); 
-			
+<div class="product-form__input product-form__input--dropdown mb-4" data-optionindex="${j}">
+  <label class="fw-medium text-uppercase font-size-sm mb-2" for="Option-${product.id}-${j}">
+    ${subOption[j].name}
+  </label>
+  <div class="select">
+    <select id="Option-${product.id}-${j}" class="form-select variant_selector" name="options[{{ option.name | escape }}]" form="product-form-${product.id}">
+      for(let k in subOption[j].values){
+      <option value="${subOption[j].values[k]}">
+        {{ value }}
+      </option>
+      }
+    </select>
+  </div>
+</div>
 		
 		
             
